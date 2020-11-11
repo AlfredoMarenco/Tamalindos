@@ -19,10 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/mascota/profile/{id}', [MascotaController::class, 'show'])->name('mascota.profile');
 
-Route::get('/mascota', [MascotaController::class , 'index'])->name('mascotas');
-
+Route::get('/mascota', [MascotaController::class , 'index'])->name('mascotas.index');
+Route::get('/mascota/profile/{id}', [MascotaController::class, 'show'])->name('mascota.show');
+Route::get('/mascota/create', [MascotaController::class, 'create'])->name('mascota.create');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

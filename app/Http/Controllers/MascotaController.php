@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mascota;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class MascotaController extends Controller
 {
@@ -26,7 +27,7 @@ class MascotaController extends Controller
      */
     public function create()
     {
-        //
+        return view('mascotas.create');
     }
 
     /**
@@ -49,7 +50,8 @@ class MascotaController extends Controller
     public function show($mascota)
     {   
         $mascota = Mascota::findOrFail($mascota);
-        return view('mascotas.profile', compact('mascota'));
+        $random = Str::random(40);
+        return view('mascotas.profile', compact('mascota','random'));
     }
 
     /**
