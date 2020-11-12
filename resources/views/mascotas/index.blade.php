@@ -9,7 +9,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 @if (App\Models\Mascota::where('user_id', auth()->id())->count() == 0)
                     <div class="my-6 mx-auto text-center">
-                        <a href="#" class="bg-blue-500 hover:bg-blue-700 rounded-xl text-white p-3 shadow-lg ">Agregar
+                        <a href="{{ route('mascota.create') }}" class="bg-blue-500 hover:bg-blue-700 rounded-xl text-white p-3 shadow-lg ">Agregar
                             mascota</a>
                     </div>
                 @else
@@ -39,7 +39,7 @@
                                                     <td class="px-6 py-4 whitespace-no-wrap">
                                                         <div class="flex items-center">
                                                             <div class="flex-shrink-0 h-10 w-10">
-                                                                <a href="{{ route('mascota.show',$mascota->id) }}" target="blank"><img class="h-10 w-10 rounded-full"
+                                                                <a href="{{ route('mascota.show',$mascota->identificator) }}" target="blank"><img class="h-10 w-10 rounded-full"
                                                                     src="https://ui-avatars.com/api/?name={{ $mascota->name }}&color=7F9CF5&background=EBF4FF"
                                                                     alt="">
                                                                 </a>

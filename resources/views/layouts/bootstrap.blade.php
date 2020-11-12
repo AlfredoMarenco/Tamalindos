@@ -28,7 +28,7 @@
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-secondary">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-secondary">Login</a>
+                        <a href="{{ route('login') }}" class="text-sm mx-3 btn btn-info border text-light">Login</a>
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="text-sm text-secondary">Register</a>
                         @endif

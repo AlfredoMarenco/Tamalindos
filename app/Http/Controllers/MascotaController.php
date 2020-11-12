@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mascota;
+use App\Models\Raza;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -15,7 +16,7 @@ class MascotaController extends Controller
      */
     public function index()
     {
-        $mascotas = Mascota::where('user_id',auth()->id());
+        $mascotas = Mascota::where('user_id', auth()->id());
         $mascotas = $mascotas->get();
         return view('mascotas.index', compact('mascotas'));
     }
@@ -27,7 +28,8 @@ class MascotaController extends Controller
      */
     public function create()
     {
-        return view('mascotas.create');
+        $races = Raza::all();
+        return view('mascotas.create', compact('races'));
     }
 
     /**
@@ -38,7 +40,20 @@ class MascotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newmascota = new Mascota;
+        $newmascota->identificator = Str::random(20);
+        $newmascota->name = $request->name;
+        $newmascota->age = $request->age;
+        $newmascota->allergy = $request->allergy;
+        $newmascota->race_id = $request->race_id;
+        $newmascota->weight = $request->weight;
+        $newmascota->dewormed = $request->dewormed;
+        $newmascota->ailments = $request->ailments;
+        $newmascota->user_id = $request->user_id;
+
+        $newmascota->save();
+
+        return redirect('mascota');
     }
 
     /**
@@ -48,10 +63,9 @@ class MascotaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($mascota)
-    {   
-        $mascota = Mascota::findOrFail($mascota);
-        $random = Str::random(40);
-        return view('mascotas.profile', compact('mascota','random'));
+    {
+        $mascota = Mascota::where('user_id', auth()->id())->first();
+        return view('mascotas.profile', compact('mascota'));
     }
 
     /**

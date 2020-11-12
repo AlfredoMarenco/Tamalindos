@@ -12,4 +12,8 @@ class Mascota extends Model
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function race(){
+        return $this->belongsTo(Raza::class, 'race_id');
+    }
 }

@@ -9,7 +9,7 @@
                         <div class="card-body">
                             <img src="https://ui-avatars.com/api/?name={{ $mascota->name }}&size=250&color=7F9CF5&background=EBF4FF" alt="" class="img-fluid w-20 mb-2">
                             <h5>{{ $mascota->name }}</h5>
-                            <span class="lead">{{ $mascota->race }}</span>
+                            <span class="lead">{{ $mascota->race->name }}</span>
                             <p style="color: gray;">Mérida</p>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                                 <tbody class="text-left">
                                     <tr>
                                         <td><strong>Alergias: </strong>{{ $mascota->allergy }}</td>
-                                        <td><strong>Padecimiento: </strong> Enfermedad cardiaca</td>
+                                        <td><strong>Padecimiento: </strong>{{ $mascota->ailments }}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Padre o tutor: </strong>{{ $mascota->user->name }}</td>
@@ -39,12 +39,12 @@
                                         <div class="col-lg-3 col-md-3 mt-auto">
                                             <p><i class="fas fa-dog" style="color: green;">
                                                 </i><strong> Personalidad</strong> </p>
-                                            <p class="text-center">Tami es buena onda</p>
+                                            <p class="text-center">{{ $mascota->name }} es buena onda</p>
                                         </div>
                                         <div class="col-lg-3 col-md-3 mt-auto">
                                             <p><i class="far fa-calendar-check" style="color: green;">
                                                 </i><strong> Próxima cita</strong> </p>
-                                            <p class="text-center"></i>1ro de Agosto</p>
+                                            <p class="text-center"></i>{{ Carbon\Carbon::now()->toDateTimeString() }}</p>
                                         </div>
                                         <div class="col-lg-6 col-md-3 mt-auto">
                                             <p> <strong>¿Encontraste a Tami?</strong></p>
