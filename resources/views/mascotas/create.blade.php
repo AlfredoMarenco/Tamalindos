@@ -16,7 +16,7 @@
                                 <div class=" sm:rounded-md sm:overflow-hidden">
                                     <div class="px-4 py-5 bg-white sm:p-6">
                                         <div class="grid grid-cols-4 gap-6">
-                                            <div class="col-span-3 sm:col-span-2">
+                                            <div class="col-span-6 sm:col-span-2">
                                                 <label class="block text-sm font-medium leading-5 text-gray-700">
                                                     Nombre de tu mascota
                                                 </label>
