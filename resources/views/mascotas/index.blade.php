@@ -46,7 +46,7 @@
                                                                     alt="{{ $mascota->name }}">
                                                                     @else
                                                                     <img class="h-10 w-10 rounded-full"
-                                                                    src="{{ Storage::url($mascota->photo) }}"
+                                                                    src="public/{{ Storage::url($mascota->photo) }}"
                                                                     alt="{{ $mascota->name }}">
                                                                     @endif
                                                                     
