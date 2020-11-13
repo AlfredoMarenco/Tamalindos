@@ -66,7 +66,7 @@ class MascotaController extends Controller
      */
     public function show($mascota)
     {
-        $mascota = Mascota::where('user_id', auth()->id())->first();
+        $mascota = Mascota::where('identificator', $mascota)->first();
         return view('mascotas.profile', compact('mascota'));
     }
 
