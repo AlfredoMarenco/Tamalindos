@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mascota;
 use App\Models\Raza;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class MascotaController extends Controller
@@ -39,8 +40,9 @@ class MascotaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $newmascota = new Mascota;
+        $newmascota->photo = $request->file('photo')->store('public');
         $newmascota->identificator = Str::random(20);
         $newmascota->name = $request->name;
         $newmascota->age = $request->age;

@@ -39,9 +39,18 @@
                                                     <td class="px-6 py-4 whitespace-no-wrap">
                                                         <div class="flex items-center">
                                                             <div class="flex-shrink-0 h-10 w-10">
-                                                                <a href="{{ route('mascota.show',$mascota->identificator) }}" target="blank"><img class="h-10 w-10 rounded-full"
+                                                                <a href="{{ route('mascota.show',$mascota->identificator) }}" target="blank">
+                                                                    @if($mascota->photo==null)
+                                                                    <img class="h-10 w-10 rounded-full"
                                                                     src="https://ui-avatars.com/api/?name={{ $mascota->name }}&color=7F9CF5&background=EBF4FF"
-                                                                    alt="">
+                                                                    alt="{{ $mascota->name }}">
+                                                                    @else
+                                                                    <img class="h-10 w-10 rounded-full"
+                                                                    src="{{ Storage::url($mascota->photo) }}"
+                                                                    alt="{{ $mascota->name }}">
+                                                                    @endif
+                                                                    
+
                                                                 </a>
                                                             </div>
                                                             <div class="ml-4">

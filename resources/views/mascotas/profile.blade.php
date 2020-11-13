@@ -7,7 +7,7 @@
                 <div class="col-lg-3 col-md-6 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <img src="https://ui-avatars.com/api/?name={{ $mascota->name }}&size=250&color=7F9CF5&background=EBF4FF" alt="" class="img-fluid w-20 mb-2">
+                            <img src="{{Storage::url($mascota->photo)}}"class="img-fluid w-20 mb-2">
                             <h5>{{ $mascota->name }}</h5>
                             <span class="lead">{{ $mascota->race->name }}</span>
                             <p style="color: gray;">Mérida</p>

@@ -10,12 +10,23 @@
                 <div class="p-6">
                     <div class="md:grid md:grid-cols-1 md:gap-6">
                         <div class="mt-5 md:mt-0 md:col-span-2">
-                            <form action="{{ route('mascota.store') }}" method="POST">
+                            <form action="{{ route('mascota.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ auth()->id() }}">
                                 <div class=" sm:rounded-md sm:overflow-hidden">
                                     <div class="px-4 py-5 bg-white sm:p-6">
                                         <div class="grid grid-cols-4 gap-6">
+                                            <div class="col-span-6 sm:col-span-4">
+                                                <label class="block text-sm font-medium leading-5 text-gray-700">
+                                                    Foto de tu mascota
+                                                </label>
+                                                <div class="mt-1 flex rounded-md shadow-sm">
+                                                    <input
+                                                        type="file"
+                                                        class="form-input flex-1 block w-full rounded transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                                        placeholder="Nombre de tu mascota" name="photo">
+                                                </div>
+                                            </div>
                                             <div class="col-span-6 sm:col-span-2">
                                                 <label class="block text-sm font-medium leading-5 text-gray-700">
                                                     Nombre de tu mascota
@@ -39,13 +50,12 @@
                                         </div>
                                         <div class="grid grid-cols-4 gap-6 mt-6">
                                             <div class="col-span-3 sm:col-span-1">
-                                                <label
-                                                    class="block text-sm font-medium leading-5 text-gray-700">
+                                                <label class="block text-sm font-medium leading-5 text-gray-700">
                                                     Edad
                                                 </label>
                                                 <div class="mt-1 flex rounded-md shadow-sm">
-                                                    <input
-                                                        type="number" class="form-input flex-1 block w-full rounded transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                                    <input type="number"
+                                                        class="form-input flex-1 block w-full rounded transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                                         placeholder="Edad de tu mascota" name="age">
                                                 </div>
                                             </div>
@@ -55,8 +65,8 @@
                                                     Peso
                                                 </label>
                                                 <div class="mt-1 flex rounded-md shadow-sm">
-                                                    <input
-                                                        type="number" class="form-input flex-1 block w-full rounded transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                                    <input type="number"
+                                                        class="form-input flex-1 block w-full rounded transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                                         placeholder="Peso de tu mascota" name="weight">
                                                 </div>
                                             </div>

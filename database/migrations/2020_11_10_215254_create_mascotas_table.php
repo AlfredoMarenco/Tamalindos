@@ -19,9 +19,10 @@ class CreateMascotasTable extends Migration
             $table->string('name');
             $table->string('age');
             $table->string('weight');
-            $table->string('allergy');
+            $table->string('allergy')->nullable();
             $table->string('dewormed');
-            $table->string('ailments');
+            $table->string('photo')->nullable();
+            $table->string('ailments')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('race_id');
