@@ -40,7 +40,7 @@
                                                         <div class="flex items-center">
                                                             <div class="flex-shrink-0 h-10 w-10">
                                                                 <a href="{{ route('mascota.show',$mascota->identificator) }}" target="blank">
-                                                                    @if($mascota->photo==null)
+                                                                    @if($mascota->photo == null)
                                                                     <img class="h-10 w-10 rounded-full"
                                                                     src="https://ui-avatars.com/api/?name={{ $mascota->name }}&color=7F9CF5&background=EBF4FF"
                                                                     alt="{{ $mascota->name }}">
