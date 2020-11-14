@@ -52,7 +52,7 @@
                                             <p class="text-center"></i>{{ Carbon\Carbon::now()->toDateTimeString() }}</p>
                                         </div>
                                         <div class="col-lg-6 col-md-3 mt-auto">
-                                            <p> <strong>¿Encontraste a Tami?</strong></p>
+                                            <p> <strong>¿Encontraste a {{ $mascota->name }}?</strong></p>
                                             <a class="btn btn-primary" href="mailto:joselinparraguirrem@gmail.com">Enviar
                                                 mensaje</a>
                                         </div>
