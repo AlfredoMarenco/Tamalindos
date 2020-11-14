@@ -19,7 +19,7 @@
 			<div style="color: #34495e; margin: 4% 10% 2%; text-align: justify;font-family: sans-serif">
             <center><h1 style="color: #e60f0f; margin: 0 0 7px">SE BUSCA!</h1></center>
             <center><h1 style="color: #e60f0f; margin: 0 0 7px">{{ $info->name }}</h1></center>
-				<center><img src="https://beta.tamalindos.com{{ Storage::url($info->photo) }}" style="width: 50%;" alt="{{ $info->name }}"></center>
+				<center><img src="https://beta.tamalindos.com{{ Storage::url($info->photo) }}" style="width: 25%;" alt="{{ $info->name }}"></center>
 				<center><p style="margin: 2px; font-size: 30px">
 				Si la has visto, comunicate a el numero #</p></center>
 				<center><p style="margin: 5px; font-size: 12px">
