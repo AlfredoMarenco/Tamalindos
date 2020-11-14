@@ -43,7 +43,7 @@ class MascotaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         $newmascota = new Mascota;
         if ($request->hasFile('photo')) {
             $newmascota->photo = $request->file('photo')->store('public');
@@ -84,9 +84,9 @@ class MascotaController extends Controller
     public function edit($mascota)
     {
         $races = Raza::all();
-        $mascota = Mascota::where('id',$mascota)->first();
-        
-        return view('mascotas.edit',compact('mascota','races'));
+        $mascota = Mascota::where('id', $mascota)->first();
+
+        return view('mascotas.edit', compact('mascota', 'races'));
     }
 
     /**
@@ -96,8 +96,8 @@ class MascotaController extends Controller
      * @param  \App\Models\Mascota  $mascota
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$mascota)
-    {   
+    public function update(Request $request, $mascota)
+    {
         $mascota = Mascota::find($mascota);
         if ($request->hasFile('photo')) {
             $mascota->photo = $request->file('photo')->store('public');
@@ -129,12 +129,12 @@ class MascotaController extends Controller
 
     public function alertEmailLost($id)
     {
-        //Mail::to($newCliente->email)->send(new Bienvenida($newCliente));
-        $mascota = Mascota::where('id',$id)->first();
+        $mascota = Mascota::where('id', $id)->first();
         $clientes = User::all();
         foreach ($clientes as $cliente) {
-            
-            Mail::to($cliente->email)->send(new PetLost($mascota));    
+            Mail::to($cliente->email)->send(new PetLost($mascota));
         }
+
+        return view('mascotas.lostalert');
     }
 }
