@@ -19,10 +19,10 @@
                                         <div class="grid grid-cols-4 gap-6">
                                             <div class="col-span-6 sm:col-span-4">
                                                 @if($mascota->photo == null)
-                                                <img src="https://ui-avatars.com/api/?name={{ $mascota->name }}&color=7F9CF5&background=EBF4FF"
+                                                <img src="https://ui-avatars.com/api/?name={{ $mascota->name }}&color=7F9CF5&background=EBF4FF">
                                                 @endif
                                                 <img src="{{ Storage::url($mascota->photo) }}" alt="{{ $mascota->name }}{{ $mascota->user->id }}"
-                                                class="h-20 w-auto mx-auto">
+                                                class="h-20 rounded-full w-auto mx-auto">
                                                 <label class="block text-sm font-medium leading-5 text-gray-700">
                                                     Foto de tu mascota
                                                 </label>
