@@ -9,7 +9,8 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 @if (App\Models\Mascota::where('user_id', auth()->id())->count() == 0)
                     <div class="my-6 mx-auto text-center">
-                        <a href="{{ route('mascota.create') }}" class="bg-blue-500 hover:bg-blue-700 rounded-xl text-white p-3 shadow-lg ">Agregar
+                        <a href="{{ route('mascota.create') }}"
+                            class="bg-blue-500 hover:bg-blue-700 rounded-xl text-white p-3 shadow-lg ">Agregar
                             mascota</a>
                     </div>
                 @else
@@ -17,7 +18,9 @@
                         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                                 <div class="flex justify-end my-2">
-                                    <a href="{{ route('mascota.create') }}" class="p-2 m-2 text-white bg-blue-500 hover:bg-blue-700 rounded-xl shadow">Agregar mascota</a>
+                                    <a href="{{ route('mascota.create') }}"
+                                        class="p-2 m-2 text-white bg-blue-500 hover:bg-blue-700 rounded-xl shadow">Agregar
+                                        mascota</a>
                                 </div>
                                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                     <table class="min-w-full divide-y divide-gray-200">
@@ -43,15 +46,16 @@
                                                     <td class="px-6 py-4 whitespace-no-wrap">
                                                         <div class="flex items-center">
                                                             <div class="flex-shrink-0 h-15 w-auto">
-                                                                <a href="{{ route('mascota.show',$mascota->identificator) }}" target="blank" >
-                                                                    @if($mascota->photo == null)
-                                                                    <img class="h-10 w-10 rounded-full"
-                                                                    src="https://ui-avatars.com/api/?name={{ $mascota->name }}&color=7F9CF5&background=EBF4FF"
-                                                                    alt="{{ $mascota->name }}">
+                                                                <a href="{{ route('mascota.show', $mascota->identificator) }}"
+                                                                    target="blank">
+                                                                    @if ($mascota->photo == null)
+                                                                        <img class="h-10 w-10 rounded-full"
+                                                                            src="https://ui-avatars.com/api/?name={{ $mascota->name }}&color=7F9CF5&background=EBF4FF"
+                                                                            alt="{{ $mascota->name }}">
                                                                     @else
-                                                                    <img class="h-10 w-auto rounded-full"
-                                                                    src="{{ Storage::url($mascota->photo) }}"
-                                                                    alt="{{ $mascota->name }}">
+                                                                        <img class="h-10 w-auto rounded-full"
+                                                                            src="{{ Storage::url($mascota->photo) }}"
+                                                                            alt="{{ $mascota->name }}">
                                                                     @endif
                                                                 </a>
                                                             </div>
@@ -72,7 +76,12 @@
                                                         </div>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-no-wrap">
-                                                    <a href="{{ route('mascota.edit',$mascota->id) }}" class="text-blue-500">Editar</a>
+                                                        <a href="{{ route('mascota.edit', $mascota->id) }}"
+                                                            class="text-blue-500">Editar</a>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-no-wrap">
+                                                        <a href="{{ route('mascota.lost', $mascota->id) }}"
+                                                            class="text-red-500">Alerta de extravio</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

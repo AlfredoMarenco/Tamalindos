@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\PetLost;
+use App\Mail\FindPet;
 use App\Models\Mascota;
 use App\Models\Raza;
 use App\Models\User;
@@ -136,5 +137,16 @@ class MascotaController extends Controller
         }
 
         return view('mascotas.lostalert');
+    }
+
+
+    public function findPet($id)
+    {
+        $mascota = Mascota::where('id',$id)->first();
+        $dueño = User::where('id', $mascota->user->id)->first();
+        $dueño = $dueño->email;
+        Mail::to($dueño)->send(new FindPet($mascota));
+
+        return view('mascotas.findalert');
     }
 }

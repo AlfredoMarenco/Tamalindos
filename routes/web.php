@@ -26,6 +26,7 @@ Route::get('/mascota/create', [MascotaController::class, 'create'])->name('masco
 Route::post('/mascota/store', [MascotaController::class, 'store'])->name('mascota.store');
 Route::any('/mascota/update/{id}', [MascotaController::class, 'update'])->name('mascota.update');
 Route::any('/mascota/lost/{id}', [MascotaController::class, 'alertEmailLost'])->name('mascota.lost');
+Route::any('/mascota/find/{id}', [MascotaController::class, 'findPet'])->name('mascota.find');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
