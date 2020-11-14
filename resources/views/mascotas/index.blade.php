@@ -16,7 +16,7 @@
                     <div class="flex flex-col">
                         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                                <div class="flex justify-end my-3">
+                                <div class="flex justify-end my-2">
                                     <a href="{{ route('mascota.create') }}" class="p-2 m-2 text-white bg-blue-500 hover:bg-blue-700 rounded-xl shadow">Agregar mascota</a>
                                 </div>
                                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -31,6 +31,10 @@
                                                     class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                     Próxima cita
                                                 </th>
+                                                <th
+                                                    class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                    Accion
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
@@ -38,19 +42,17 @@
                                                 <tr>
                                                     <td class="px-6 py-4 whitespace-no-wrap">
                                                         <div class="flex items-center">
-                                                            <div class="flex-shrink-0 h-10 w-10">
-                                                                <a href="{{ route('mascota.show',$mascota->identificator) }}" target="blank">
+                                                            <div class="flex-shrink-0 h-15 w-auto">
+                                                                <a href="{{ route('mascota.show',$mascota->identificator) }}" target="blank" >
                                                                     @if($mascota->photo == null)
                                                                     <img class="h-10 w-10 rounded-full"
                                                                     src="https://ui-avatars.com/api/?name={{ $mascota->name }}&color=7F9CF5&background=EBF4FF"
                                                                     alt="{{ $mascota->name }}">
                                                                     @else
-                                                                    <img class="h-10 w-10 rounded-full"
+                                                                    <img class="h-10 w-auto rounded-full"
                                                                     src="{{ Storage::url($mascota->photo) }}"
                                                                     alt="{{ $mascota->name }}">
                                                                     @endif
-                                                                    
-
                                                                 </a>
                                                             </div>
                                                             <div class="ml-4">
@@ -68,6 +70,9 @@
                                                         <div class="text-sm leading-5 text-gray-500">
                                                             {{ Carbon\Carbon::now()->toDayDateTimeString() }}
                                                         </div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-no-wrap">
+                                                    <a href="{{ route('mascota.edit',$mascota->id) }}" class="text-blue-500">Editar</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

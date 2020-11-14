@@ -42,7 +42,9 @@ class MascotaController extends Controller
     public function store(Request $request)
     {   
         $newmascota = new Mascota;
-        $newmascota->photo = $request->file('photo')->store('public');
+        if ($request->hasFile('photo')) {
+            $newmascota->photo = $request->file('photo')->store('public');
+        }
         $newmascota->identificator = Str::random(20);
         $newmascota->name = $request->name;
         $newmascota->age = $request->age;
@@ -76,9 +78,12 @@ class MascotaController extends Controller
      * @param  \App\Models\Mascota  $mascota
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mascota $mascota)
+    public function edit($mascota)
     {
-        //
+        $races = Raza::all();
+        $mascota = Mascota::where('id',$mascota)->first();
+        
+        return view('mascotas.edit',compact('mascota','races'));
     }
 
     /**
@@ -88,9 +93,24 @@ class MascotaController extends Controller
      * @param  \App\Models\Mascota  $mascota
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mascota $mascota)
-    {
-        //
+    public function update(Request $request,$mascota)
+    {   
+        $mascota = Mascota::find($mascota);
+        if ($request->hasFile('photo')) {
+            $mascota->photo = $request->file('photo')->store('public');
+        }
+        $mascota->name = $request->name;
+        $mascota->name = $request->name;
+        $mascota->age = $request->age;
+        $mascota->allergy = $request->allergy;
+        $mascota->race_id = $request->race_id;
+        $mascota->weight = $request->weight;
+        $mascota->dewormed = $request->dewormed;
+        $mascota->ailments = $request->ailments;
+        $mascota->user_id = $request->user_id;
+        $mascota->update();
+
+        return back();
     }
 
     /**
