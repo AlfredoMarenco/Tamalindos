@@ -21,8 +21,7 @@
                                                     Foto de tu mascota
                                                 </label>
                                                 <div class="mt-1 flex rounded-md shadow-sm">
-                                                    <input
-                                                        type="file"
+                                                    <input type="file"
                                                         class="form-input flex-1 block w-full rounded transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                                         placeholder="Nombre de tu mascota" name="photo">
                                                 </div>
@@ -36,6 +35,9 @@
                                                         class="form-input flex-1 block w-full rounded transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                                         placeholder="Nombre de tu mascota" name="name">
                                                 </div>
+                                                @error('name')
+                                                        <small class="text-red-700">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                             <div class="col-span-6 sm:col-span-2">
                                                 <label

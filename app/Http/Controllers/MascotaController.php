@@ -7,6 +7,7 @@ use App\Mail\FindPet;
 use App\Models\Mascota;
 use App\Models\Raza;
 use App\Models\User;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -14,6 +15,10 @@ use Illuminate\Support\Str;
 
 class MascotaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,6 +50,16 @@ class MascotaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'age' => 'required',
+            'allergy' => 'required',
+            'weight' => 'required',
+            'dewormed' => 'required',
+            'ailments' => 'required',
+            'race_id' => 'required',
+        ]);
+
         $newmascota = new Mascota;
         if ($request->hasFile('photo')) {
             $newmascota->photo = $request->file('photo')->store('public');
