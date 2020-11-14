@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PetLost;
 use App\Models\Mascota;
 use App\Models\Raza;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -122,5 +125,16 @@ class MascotaController extends Controller
     public function destroy(Mascota $mascota)
     {
         //
+    }
+
+    public function alertEmailLost($id)
+    {
+        //Mail::to($newCliente->email)->send(new Bienvenida($newCliente));
+        $mascota = Mascota::where('id',$id)->first();
+        $clientes = User::all();
+        foreach ($clientes as $cliente) {
+            
+            Mail::to($cliente->email)->send(new PetLost($mascota));    
+        }
     }
 }

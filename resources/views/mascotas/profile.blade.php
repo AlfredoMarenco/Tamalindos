@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-3 mt-auto">
                                             <p> <strong>¿Encontraste a {{ $mascota->name }}?</strong></p>
-                                            <a class="btn btn-primary" href="mailto:joselinparraguirrem@gmail.com">Enviar
+                                            <a class="btn btn-primary" href="{{ route('mascota.lost',$mascota->id) }}">Enviar
                                                 mensaje</a>
                                         </div>
                                     </div>
