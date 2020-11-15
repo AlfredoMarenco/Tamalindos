@@ -16,7 +16,35 @@
                 </div>
 
                 <div class="container">
-                    <iframe src="https://qrcodescan.in" frameborder="0"></iframe>
+                    <main class="app__layout-content">
+                        <video autoplay></video>
+                
+                        <!-- Dialog  -->
+                        <div class="app__dialog app__dialog--hide">
+                          <div class="app__dialog-content">
+                            <h5>QR Code</h5>
+                            <input type="text" id="result">
+                          </div>
+                          <div class="app__dialog-actions">
+                            <button type="button" class="app__dialog-open">Open</button>
+                            <button type="button" class="app__dialog-close">Close</button>
+                          </div>
+                        </div>
+                
+                        <div class="app__dialog-overlay app__dialog--hide"></div>
+                
+                        <!-- Snackbar -->
+                        <div class="app__snackbar"></div>
+                      </main>
+                    </div>
+                    <div class="app__overlay">
+                      <div class="app__overlay-frame"></div>
+                      <!-- Scanner animation -->
+                      <div class="custom-scanner"></div>
+                      <div class="app__help-text"></div>
+                    </div>
+                
+                    <div class="app__select-photos"></div>
                 </div>
             </div>
         </div>

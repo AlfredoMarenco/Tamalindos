@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/scanqr',function(){
+    return redirect('https://qrcodescan.in');
+});
 
 Route::get('/mascota', [MascotaController::class , 'index'])->name('mascota.index');
 Route::get('/mascota/show/{id}', [MascotaController::class, 'show'])->name('mascota.show');
