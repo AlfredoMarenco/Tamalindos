@@ -23,7 +23,7 @@
                                                 @else
                                                 <img src="{{ Storage::url($mascota->photo) }}" alt="{{ $mascota->name }}{{ $mascota->user->id }}"
                                                 class="h-20 rounded-full w-auto mx-auto">                                                
-                                                @endif|
+                                                @endif
                                                 <label class="block text-sm font-medium leading-5 text-gray-700">
                                                     Foto de tu mascota
                                                 </label>
