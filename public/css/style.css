@@ -1,0 +1,39 @@
+html {
+    overflow-x: hidden; 
+    font-family: 'Roboto', sans-serif;
+}
+
+   .cuidamos {
+       font-weight: 700;
+       font-size: 70px;
+   }
+
+   .mb-4 {
+       font-weight: 200;
+       font-size: 20px;
+   }
+
+   .btn {
+    font-size: 16px;
+    border-radius: 30px !important;
+    padding: 10px 30px !important;}
+    .btn:hover, .btn:active, .btn:focus {
+      outline: none;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important; }
+    .btn.btn-primary {
+      background: #0AACDD;
+      border-color: #0AACDD;
+      color: #fff; }
+      .btn.btn-primary:hover {
+        background: #000;
+        border-color: #000;
+        color: #fff; }
+      .btn.btn-primary.btn-black--hover:hover {
+        background: #666666;
+        color: #fff; }
+
+    .card {
+        background-color: #fbfcfc !important;
+        border-color: transparent !important;
+    }

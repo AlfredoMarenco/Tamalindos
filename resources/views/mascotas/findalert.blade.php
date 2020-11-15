@@ -1,4 +1,4 @@
-@extends('layouts.bootstrap')
+@extends('layouts.template')
 
 @section('section')
 <div class="alert alert-success">
