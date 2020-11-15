@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 Route::get('/scanqr',function(){
     return redirect('https://qrcodescan.in');
-});
+})->name('scanqr');
 
 Route::get('/mascota', [MascotaController::class , 'index'])->name('mascota.index');
 Route::get('/mascota/show/{id}', [MascotaController::class, 'show'])->name('mascota.show');
