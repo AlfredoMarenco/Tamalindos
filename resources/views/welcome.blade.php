@@ -14,6 +14,10 @@
                 <div class="col-md-5 align-self-end text-center text-md-right">
                     <img src="img/dogger_img_1.png" alt="Image" class="img-fluid cover-img">
                 </div>
+
+                <div class="container">
+                    <iframe src="https://qrcodescan.in" frameborder="0"></iframe>
+                </div>
             </div>
         </div>
     </section>
