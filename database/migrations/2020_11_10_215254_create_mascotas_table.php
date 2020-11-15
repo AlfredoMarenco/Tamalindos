@@ -25,8 +25,8 @@ class CreateMascotasTable extends Migration
             $table->string('ailments')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('race_id');
-            $table->foreign('race_id')->references('id')->on('razas');
+            $table->string('race');
+            $table->string('species');
             $table->timestamps();
         });
     }

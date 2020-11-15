@@ -57,7 +57,7 @@ class MascotaController extends Controller
             'weight' => 'required',
             'dewormed' => 'required',
             'ailments' => 'required',
-            'race_id' => 'required',
+            'race' => 'required',
         ]);
 
         $newmascota = new Mascota;
@@ -68,8 +68,9 @@ class MascotaController extends Controller
         $newmascota->name = $request->name;
         $newmascota->age = $request->age;
         $newmascota->allergy = $request->allergy;
-        $newmascota->race_id = $request->race_id;
+        $newmascota->race = $request->race;
         $newmascota->weight = $request->weight;
+        $newmascota->species = $request->species;
         $newmascota->dewormed = $request->dewormed;
         $newmascota->ailments = $request->ailments;
         $newmascota->user_id = $request->user_id;
@@ -122,7 +123,8 @@ class MascotaController extends Controller
         $mascota->name = $request->name;
         $mascota->age = $request->age;
         $mascota->allergy = $request->allergy;
-        $mascota->race_id = $request->race_id;
+        $mascota->race = $request->race;
+        $mascota->species = $request->species;
         $mascota->weight = $request->weight;
         $mascota->dewormed = $request->dewormed;
         $mascota->ailments = $request->ailments;

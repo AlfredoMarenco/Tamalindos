@@ -14,7 +14,7 @@
                                 <img src="{{ Storage::url($mascota->photo) }}" class="img-fluid mb-2" style="width: 50%;">
                             @endif
                             <h5>{{ $mascota->name }}</h5>
-                            <span class="lead">{{ $mascota->race->name }}</span>
+                            <span class="lead">{{ $mascota->race }}</span>
                             <p style="color: gray;">Mérida</p>
                         </div>
                     </div>

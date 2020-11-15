@@ -44,14 +44,14 @@
                                                 </div>
                                             </div>
                                             <div class="col-span-6 sm:col-span-2">
-                                                <label
-                                                    class="block text-sm font-medium leading-5 text-gray-700">Raza</label>
-                                                <select name="race_id"
-                                                    class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                                    @foreach ($races as $race)
-                                                        <option value="{{ $race->id }}" {{ $mascota->race_id == $race->id ? 'selected' : '' }}>{{ $race->name }}</option>
-                                                    @endforeach
-                                                </select>
+                                                <label class="block text-sm font-medium leading-5 text-gray-700">
+                                                    Raza
+                                                </label>
+                                                <div class="mt-1 flex rounded-md shadow-sm">
+                                                    <input
+                                                        class="form-input flex-1 block w-full rounded transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                                        placeholder="Nombre de tu mascota" name="race" value="{{ $mascota->race }}">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-4 gap-6 mt-6">
@@ -83,6 +83,15 @@
                                                     class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                                                     <option value="Si" {{ $mascota->dewormed == 'Si' ? 'selected' : '' }}>Si</option>
                                                     <option value="No" {{ $mascota->dewormed == 'No' ? 'selected' : '' }}>No</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-span-6 sm:col-span-1">
+                                                <label
+                                                    class="block text-sm font-medium leading-5 text-gray-700">¿Desparacitado?</label>
+                                                <select name="species"
+                                                    class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                                    <option value="perro" {{ $mascota->species == 'perro' ? 'selected' : '' }}>Perro</option>
+                                                    <option value="gato" {{ $mascota->species == 'gato' ? 'selected' : '' }}>Gato</option>
                                                 </select>
                                             </div>
                                         </div>

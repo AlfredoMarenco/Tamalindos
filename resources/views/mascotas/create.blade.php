@@ -36,18 +36,21 @@
                                                         placeholder="Nombre de tu mascota" name="name">
                                                 </div>
                                                 @error('name')
-                                                        <small class="text-red-700">{{ $message }}</small>
+                                                    <div class="font-sm text-red-600">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                             <div class="col-span-6 sm:col-span-2">
-                                                <label
-                                                    class="block text-sm font-medium leading-5 text-gray-700">Raza</label>
-                                                <select name="race_id"
-                                                    class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                                    @foreach ($races as $race)
-                                                        <option value="{{ $race->id }}">{{ $race->name }}</option>
-                                                    @endforeach
-                                                </select>
+                                                <label class="block text-sm font-medium leading-5 text-gray-700">
+                                                    Raza
+                                                </label>
+                                                <div class="mt-1 flex rounded-md shadow-sm">
+                                                    <input
+                                                        class="form-input flex-1 block w-full rounded transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                                        placeholder="Nombre de tu mascota" name="race">
+                                                </div>
+                                                @error('race')
+                                                    <div class="font-sm text-red-600">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-4 gap-6 mt-6">
@@ -60,6 +63,9 @@
                                                         class="form-input flex-1 block w-full rounded transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                                         placeholder="Edad de tu mascota" name="age">
                                                 </div>
+                                                @error('age')
+                                                    <div class="font-sm text-red-600">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="col-span-3 sm:col-span-1">
                                                 <label for="company_website"
@@ -71,6 +77,9 @@
                                                         class="form-input flex-1 block w-full rounded transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                                         placeholder="Peso de tu mascota" name="weight">
                                                 </div>
+                                                @error('weight')
+                                                    <div class="font-sm text-red-600">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="col-span-6 sm:col-span-1">
                                                 <label
@@ -79,6 +88,15 @@
                                                     class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                                                     <option value="Si">Si</option>
                                                     <option value="No">No</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-span-6 sm:col-span-1">
+                                                <label
+                                                    class="block text-sm font-medium leading-5 text-gray-700">Especie</label>
+                                                <select name="species"
+                                                    class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                                    <option value="perro">Perro</option>
+                                                    <option value="gato">Gato</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -93,6 +111,9 @@
                                                         class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                                         placeholder="Alergia1,Alergia2,Alergia3,...,AlergiaN."></textarea>
                                                 </div>
+                                                @error('allergy')
+                                                    <div class="font-sm text-red-600">{{ $message }}</div>
+                                                @enderror
                                                 <p class="mt-2 text-sm text-gray-500">
                                                     Separa las alergias de tu mascota con una coma.
                                                 </p>
@@ -107,6 +128,9 @@
                                                         class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                                         placeholder="Padecimiento1,Padecimiento2,Padecimiento3,...,PadecimientoN."></textarea>
                                                 </div>
+                                                @error('ailments')
+                                                    <div class="font-sm text-red-600">{{ $message }}</div>
+                                                @enderror
                                                 <p class="mt-2 text-sm text-gray-500">
                                                     Separa los padecimientos de tu mascota con una coma.
                                                 </p>

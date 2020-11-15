@@ -149,6 +149,9 @@ return [
     'attributes' => [
         'name' => 'nombre',
         'age' => 'edad',
+        'weight' => 'peso',
+        'allergy' => 'alergias',
+        'ailments' => 'padecimientos'
     ],
 
 ];
