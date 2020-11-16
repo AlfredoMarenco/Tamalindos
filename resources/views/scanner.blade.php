@@ -11,8 +11,8 @@
             mirror: false
         });
         scanner.addListener('scan', function(content) {
-            alert(content);
-            //window.location.href=content;
+            //alert(content);
+            window.location.href=content;
         });
         Instascan.Camera.getCameras().then(function(cameras) {
             if (cameras.length > 0) {
