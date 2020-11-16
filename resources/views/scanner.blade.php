@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('section')
-    <video id="preview" class="border" style="width:500px; height: 500px; margin:0px auto;"></video>
+    <video id="preview" class="border" style="width:500px; height: 500px;"></video>
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"
         rel="nofollow">
     </script>
