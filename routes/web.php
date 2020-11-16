@@ -22,6 +22,10 @@ Route::get('/scanqr',function(){
     return redirect('https://qrcodescan.in');
 })->name('scanqr');
 
+Route::get('/scanner',function(){
+    return view('scanner');
+})->name('scanner');
+
 Route::get('/mascota', [MascotaController::class , 'index'])->name('mascota.index');
 Route::get('/mascota/show/{id}', [MascotaController::class, 'show'])->name('mascota.show');
 Route::get('/mascota/edit/{id}', [MascotaController::class, 'edit'])->name('mascota.edit');
