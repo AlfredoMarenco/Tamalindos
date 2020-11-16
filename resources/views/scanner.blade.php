@@ -1,60 +1,55 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <title>QR Code Scanner</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="QR Code Scanner is the fastest and most user-friendly web application.">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="QR Scanner">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#e4e4e4">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="QR Scanner">
-    <meta name="msapplication-TileColor" content="#e4e4e4">
-    <meta name="msapplication-TileImage" content="/images/touch/mstile-150x150.png">
-    <meta name="theme-color" content="#fff">
-    <link rel="apple-touch-icon" href="/images/touch/apple-touch-icon.jpg">
-    <link rel="icon" type="image/png" href="/images/touch/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/touch/favicon-16x16.png" sizes="16x16">
-    <link rel="shortcut icon" href="/images/touch/favicon.ico">
-    <link rel="manifest" href="js/manifest.json">
-    <link rel="preload" as="script" href="js/decoder.js">
-    <link href="css/scanner.css" rel="stylesheet">
-</head>
+@extends('layouts.template')
 
-<body>
-    <div class="app__layout">
-        <!-- Header -->
-        <header class="app__header"><span class="app__header-icon"
-                onclick="window.open('https://github.com/code-kotis/qr-code-scanner', '_blank', 'toolbar=0,location=0,menubar=0');"><svg
-                    fill="#FFFFFF" height="27" viewBox="0 0 24 24" width="27" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 0h24v24H0z" fill="none" />
-                    <path
-                        d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z" />
-                </svg></span></header>
-        <main class="app__layout-content"><video autoplay></video><!-- Dialog  -->
-            <div class="app__dialog app__dialog--hide">
-                <div class="app__dialog-content">
-                    <h5>QR Code</h5><input type="text" id="result">
-                </div>
-                <div class="app__dialog-actions"><button type="button" class="app__dialog-open">Open</button> <button
-                        type="button" class="app__dialog-close">Close</button></div>
-            </div>
-            <div class="app__dialog-overlay app__dialog--hide"></div><!-- Snackbar -->
-            <div class="app__snackbar"></div>
-        </main>
-    </div>
-    <div class="app__overlay">
-        <div class="app__overlay-frame"></div><!-- Scanner animation -->
-        <div class="custom-scanner"></div>
-        <div class="app__help-text"></div>
-    </div>
-    <div class="app__select-photos"></div>
-    <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js"
-        integrity="sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA" crossorigin="anonymous">
+@section('section')
+    <video id="preview" class="border" style="width:100%; height: 100%;"></video>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" rel="nofollow">
     </script>
-    <script type="text/javascript" src="js/main.3406e0ef48e2e7c90c59.bundle.js"></script>
-</body>
+    <script type="text/javascript">
+        var scanner = new Instascan.Scanner({
+            video: document.getElementById('preview'),
+            scanPeriod: 5,
+            mirror: false
+        });
+        scanner.addListener('scan', function(content) {
+            //alert(content);
+            window.location.href=content;
+        });
+        Instascan.Camera.getCameras().then(function(cameras) {
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+                $('[name="options"]').on('change', function() {
+                    if ($(this).val() == 1) {
+                        if (cameras[0] != "") {
+                            scanner.start(cameras[0]);
+                        } else {
+                            alert('No Front camera found!');
+                        }
+                    } else if ($(this).val() == 2) {
+                        if (cameras[1] != "") {
+                            scanner.start(cameras[1]);
+                        } else {
+                            alert('No Back camera found!');
+                        }
+                    }
+                });
+            } else {
+                console.error('No cameras found.');
+                alert('No cameras found.');
+            }
+        }).catch(function(e) {
+            console.error(e);
+            alert(e);
+        });
 
-</html>
+    </script>
+    <center>
+    <div class="btn-group btn-group-toggle mb-5" data-toggle="buttons">
+        <label class="btn btn-primary active">
+            <input type="radio" name="options" value="1" autocomplete="off" checked> Front Camera
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" value="2" autocomplete="off"> Back Camera
+        </label>
+    </div>
+    </center>
+@endsection
