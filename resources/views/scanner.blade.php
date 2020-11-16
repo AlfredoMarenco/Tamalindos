@@ -5,9 +5,8 @@
     <script type="text/javascript">
         let scanner = new Instascan.Scanner({
             video: document.getElementById('preview'),
-            continuous: true,
             mirror: false,
-            refractoryPeriod: 5000,
+            scanPeriod: 5
         });
         scanner.addListener('scan', function(content) {
             console.log(content);
