@@ -12,7 +12,7 @@
         });
         scanner.addListener('scan', function(content) {
             //alert(content);
-            window.location.href=content;
+            window.location.href = content;
         });
         Instascan.Camera.getCameras().then(function(cameras) {
             if (cameras.length > 0) {
@@ -43,13 +43,35 @@
 
     </script>
     <center>
-    <div class="btn-group btn-group-toggle mb-5" data-toggle="buttons">
-        <label class="btn btn-primary active">
-            <input type="radio" name="options" value="1" autocomplete="off" checked> Front Camera
-        </label>
-        <label class="btn btn-secondary">
-            <input type="radio" name="options" value="2" autocomplete="off"> Back Camera
-        </label>
-    </div>
+        <div class="btn-group btn-group-toggle mb-5" data-toggle="buttons">
+            <label class="btn btn-primary active">
+                <input type="radio" name="options" value="1" autocomplete="off" checked> Front Camera
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" value="2" autocomplete="off"> Back Camera
+            </label>
+        </div>
     </center>
+
+    <button onclick="getLocation()">Try It</button>
+
+    <p id="demo"></p>
+
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+        }
+
+    </script>
 @endsection

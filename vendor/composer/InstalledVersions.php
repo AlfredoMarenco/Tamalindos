@@ -14,16 +14,34 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'f4b2f38cd441224fe4fb8dd8812afce8f4aaf173',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
   array (
+    'alexpechkarev/geometry-library' => 
+    array (
+      'pretty_version' => '1.0.2',
+      'version' => '1.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '85a0859e87343e871020f0bc7530309d75ab4a3c',
+    ),
+    'alexpechkarev/google-maps' => 
+    array (
+      'pretty_version' => '8.0',
+      'version' => '8.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'cf10b7a5cbe18d4e0f845acf05d6979647f7b279',
+    ),
     'asm89/stack-cors' => 
     array (
       'pretty_version' => 'v2.0.2',
@@ -462,6 +480,15 @@ private static $installed = array (
       ),
       'reference' => '346cfd72d11bb41f15e82654e532dc55360612ac',
     ),
+    'jbroadway/urlify' => 
+    array (
+      'pretty_version' => '1.2.2-stable',
+      'version' => '1.2.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9b227e8548f16268cef55b5eb5d659a801fa824b',
+    ),
     'jenssegers/agent' => 
     array (
       'pretty_version' => 'v2.6.4',
@@ -507,12 +534,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'f4b2f38cd441224fe4fb8dd8812afce8f4aaf173',
     ),
     'laravel/sanctum' => 
     array (
@@ -1364,6 +1391,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '87dc337d4200b32717dd3849fea846319e897658',
+    ),
+    'voku/stop-words' => 
+    array (
+      'pretty_version' => '2.0.1',
+      'version' => '2.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8e63c0af20f800b1600783764e0ce19e53969f71',
     ),
     'webmozart/assert' => 
     array (
