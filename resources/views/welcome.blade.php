@@ -14,6 +14,7 @@
                 <div class="col-md-5 align-self-end text-center text-md-right">
                     <img src="img/dogger_img_1.png" alt="Image" class="img-fluid cover-img">
                 </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque.
             </div>
         </div>
     </section>
