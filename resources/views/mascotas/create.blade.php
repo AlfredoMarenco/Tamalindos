@@ -49,7 +49,7 @@
                                                         placeholder="Nombre de tu mascota" name="race">
                                                 </div>
                                                 @error('race')
-                                                    <div class="font-sm text-red-600">{{ $message }}</div>
+                                                    <div class="font-md text-red-600">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
